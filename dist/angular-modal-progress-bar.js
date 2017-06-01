@@ -26,10 +26,10 @@ angular.module('500tech.modal-progress-bar', [])
       },
 
       start: function(state) {
-        if (Object.keys(this.states).indexOf(state) != -1) {
+        if (Object.keys(this.states).indexOf(state) == -1) {
           console.log('State ' + state + ' was not found in loader states');
-          console.log('Declared loader states are: ' + this.states);
-          return
+          console.log('Declared loader states are: ' + Object.keys(this.states));
+          return;
         }
         this.phrases = this.states[state].phrases;
         this.loading.progress = 0;
